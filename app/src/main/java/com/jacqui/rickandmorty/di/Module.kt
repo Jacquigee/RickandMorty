@@ -3,6 +3,8 @@ package com.jacqui.rickandmorty.di
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
+import com.jacqui.rickandmorty.data.repository.CharacterRepo
+import com.jacqui.rickandmorty.data.repository.CharacterRepoImpl
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApi
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApiImpl
 import kotlinx.serialization.json.Json
@@ -67,3 +69,7 @@ val characterModule =
 
         single<CharacterApi> { CharacterApiImpl(get()) }
     }
+
+val repositoryModule = module {
+    single<CharacterRepo> { CharacterRepoImpl(get(), get()) }
+}

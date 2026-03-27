@@ -2,7 +2,7 @@ package com.jacqui.rickandmorty.sources.remote.model
 
 data class CharacterDto(
     val info: Info,
-    val results: List<Result>
+    val results: List<CharacterResult>
 )
 
 data class Info(
@@ -12,7 +12,7 @@ data class Info(
     val prev: String
 )
 
-data class Result(
+data class CharacterResult(
     val created: String,
     val episode: List<String>,
     val gender: String,
