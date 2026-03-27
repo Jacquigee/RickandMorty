@@ -1,6 +1,7 @@
-package com.jacqui.rickandmorty.sources.remote
+package com.jacqui.rickandmorty.sources.remote.api
 
 import com.jacqui.rickandmorty.sources.remote.model.CharacterDto
+import com.jacqui.rickandmorty.sources.remote.utils.NetworkResult
 
 /**
  * Project Name: Rick and Morty
@@ -11,5 +12,5 @@ import com.jacqui.rickandmorty.sources.remote.model.CharacterDto
  */
 
 interface CharacterApi {
-    suspend fun getCharacters(): List<CharacterDto>
+    suspend fun getCharacters(): NetworkResult<List<CharacterDto>>
 }
