@@ -12,5 +12,5 @@ import com.jacqui.rickandmorty.sources.remote.utils.NetworkResult
  */
 
 interface CharacterApi {
-    suspend fun getCharacters(): NetworkResult<List<CharacterDto>>
+    suspend fun getCharacters(): NetworkResult<CharacterDto>
 }

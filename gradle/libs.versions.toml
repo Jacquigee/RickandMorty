@@ -11,6 +11,7 @@ activityCompose = "1.13.0"
 composeBom = "2026.03.01"
 
 androidx-datastore = "1.2.1"
+koin-plugin = "0.4.1"
 
 #koin
 koin = "4.2.0"
@@ -22,6 +23,7 @@ ktor = "3.4.1"
 
 
 # Room version
+paging = "3.4.2"
 room-version = "2.8.4"
 
 #Other
@@ -34,6 +36,8 @@ chucker = "4.3.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -112,4 +116,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+koin-compiler = { id = "io.insert-koin.compiler.plugin", version.ref = "koin-plugin" }
 

@@ -7,7 +7,7 @@ import com.jacqui.rickandmorty.data.domain.LocationDomain
 import com.jacqui.rickandmorty.data.domain.OriginDomain
 import com.jacqui.rickandmorty.sources.remote.model.CharacterDto
 import com.jacqui.rickandmorty.sources.remote.model.CharacterResult
-import com.jacqui.rickandmorty.sources.remote.model.Info
+import com.jacqui.rickandmorty.sources.remote.model.InfoDto
 import com.jacqui.rickandmorty.sources.remote.model.Location
 import com.jacqui.rickandmorty.sources.remote.model.Origin
 
@@ -22,7 +22,7 @@ import com.jacqui.rickandmorty.sources.remote.model.Origin
 fun CharacterDto.toDomain() =
     CharacterDomain(info = info.toDomain(), results = results.map { it.toDomain() })
 
-fun Info.toDomain() = InfoDomain(count = count, next = next, pages = pages, prev = prev)
+fun InfoDto.toDomain() = InfoDomain(count = count, next = next, pages = pages, prev = prev)
 
 fun CharacterResult.toDomain() = CharacterResultDomain(
     created = created,

@@ -13,5 +13,5 @@ import kotlinx.coroutines.flow.Flow
  */
 
 interface CharacterRepo {
-    suspend fun getCharacters(): DataResult<List<CharacterDomain>>
+    suspend fun getCharacters(): DataResult<CharacterDomain>
 }

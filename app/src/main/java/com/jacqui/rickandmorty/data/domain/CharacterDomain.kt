@@ -15,9 +15,9 @@ data class CharacterDomain(
 
 data class InfoDomain(
     val count: Int,
-    val next: String,
+    val next: String?,
     val pages: Int,
-    val prev: String
+    val prev: String?
 )
 
 data class CharacterResultDomain(

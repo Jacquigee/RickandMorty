@@ -1,5 +1,6 @@
 package com.jacqui.rickandmorty.data.repository
 
+import android.R.attr.data
 import com.jacqui.rickandmorty.data.domain.CharacterDomain
 import com.jacqui.rickandmorty.data.mappers.toDomain
 import com.jacqui.rickandmorty.data.utils.DataResult
@@ -20,12 +21,12 @@ class CharacterRepoImpl(
     private val characterApi: CharacterApi,
     private val dispatcher: CoroutineDispatcher
 ) : CharacterRepo {
-    override suspend fun getCharacters(): DataResult<List<CharacterDomain>> =
+    override suspend fun getCharacters(): DataResult<CharacterDomain> =
         withContext(dispatcher) {
             when (val response = characterApi.getCharacters()) {
                 is NetworkResult.Error -> DataResult.Error(error = response.exception.message.toString())
                 is NetworkResult.Success -> {
-                    val data = response.data.map { it.toDomain() }
+                    val data = response.data.toDomain()
                     DataResult.Success(data = data)
                 }
             }

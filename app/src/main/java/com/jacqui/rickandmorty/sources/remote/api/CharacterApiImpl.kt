@@ -20,7 +20,7 @@ import timber.log.Timber
  */
 
 class CharacterApiImpl(val client: HttpClient) : CharacterApi {
-    override suspend fun getCharacters(): NetworkResult<List<CharacterDto>> =
+    override suspend fun getCharacters(): NetworkResult<CharacterDto> =
         safeApiCall(errorMessage = "Failed to fetch characters") {
             val response = client.get {
                 url(urlString = Endpoints.Characters.charactersUrl)

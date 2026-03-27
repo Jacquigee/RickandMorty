@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
+    // Removed koin.compiler plugin as it's causing false-positive validation errors for DSL modules
 }
 
 android {
@@ -41,6 +42,7 @@ android {
         }
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
     packaging {
@@ -94,11 +96,14 @@ dependencies {
 
     // Room
     implementation(libs.bundles.room)
-    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler) // Changed from annotationProcessor to ksp
 
     // chucker
     debugImplementation(libs.chuckerDebug)
     releaseImplementation(libs.chuckerRelease)
 
+    //paging
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
 
 }

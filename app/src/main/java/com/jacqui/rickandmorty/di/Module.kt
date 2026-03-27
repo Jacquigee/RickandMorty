@@ -3,18 +3,23 @@ package com.jacqui.rickandmorty.di
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
+import com.jacqui.rickandmorty.BuildConfig
 import com.jacqui.rickandmorty.data.repository.CharacterRepo
 import com.jacqui.rickandmorty.data.repository.CharacterRepoImpl
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApi
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApiImpl
 import com.jacqui.rickandmorty.view.viewmodel.CharacterViewModel
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
-import org.koin.plugin.module.dsl.viewModel
 
 
 /**
@@ -29,54 +34,44 @@ val characterModule =
     module {
         single {
             val loggingInterceptor = HttpLoggingInterceptor()
-//            if (BuildConfig.DEBUG) {
-//                loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-//            }
+            if (BuildConfig.DEBUG) {
+                loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            }
 
-            val chuckerCollector =
-                ChuckerCollector(
-                    context = androidContext(),
-                    showNotification = true,
-                    retentionPeriod = RetentionManager.Period.ONE_HOUR,
-                )
+            val chuckerCollector = ChuckerCollector(
+                context = androidContext(),
+                showNotification = true,
+                retentionPeriod = RetentionManager.Period.ONE_HOUR,
+            )
 
-            val chuckerInterceptor =
-                ChuckerInterceptor.Builder(context = androidContext())
-                    .collector(chuckerCollector)
-                    .maxContentLength(250000L)
-                    .redactHeaders(emptySet())
-                    .alwaysReadResponseBody(false)
-                    .build()
+            val chuckerInterceptor = ChuckerInterceptor.Builder(context = androidContext())
+                .collector(chuckerCollector)
+                .maxContentLength(250000L)
+                .redactHeaders(emptySet())
+                .alwaysReadResponseBody(false)
+                .build()
 
-            val okhttpClient =
-                OkHttpClient.Builder()
-                    .addInterceptor(chuckerInterceptor)
-                    .addInterceptor(loggingInterceptor)
-                    .build()
-
-            val contentType = "application/json".toMediaType()
-            val json =
-                Json {
-                    ignoreUnknownKeys = true
+            HttpClient(OkHttp) {
+                engine {
+                    addInterceptor(loggingInterceptor)
+                    addInterceptor(chuckerInterceptor)
                 }
-//            kt.Builder()
-//                .baseUrl(
-//                    "https://vast-adequately-elk.ngrok-free.app/Tende_monitoring_tool-main/",
-//                )
-//                .addConverterFactory(
-//                    json.asConverterFactory(contentType),
-//                )
-//                .client(okhttpClient)
-//                .build()
+                install(ContentNegotiation) {
+                    json(Json {
+                        ignoreUnknownKeys = true
+                    })
+                }
+            }
         }
 
         single<CharacterApi> { CharacterApiImpl(get()) }
     }
 
 val repositoryModule = module {
+    single<CoroutineDispatcher> { Dispatchers.IO }
     single<CharacterRepo> { CharacterRepoImpl(get(), get()) }
 }
 
 val viewmodelModule = module {
-    viewModel<CharacterViewModel>()
+    viewModelOf(::CharacterViewModel)
 }
