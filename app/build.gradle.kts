@@ -1,19 +1,18 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlin.ksp)
-    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = "com.jacqui.rickandmorty"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jacqui.rickandmorty"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -33,17 +32,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+    kotlin {
+        compilerOptions {
+            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+        }
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
     }
     packaging {
         resources {
@@ -75,10 +73,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    //Hilt
-    implementation(libs.bundles.hilt)
-    ksp(libs.androidx.hilt.compiler)
-    ksp(libs.dagger.hilt.compiler)
+    //Koin
+    implementation(platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
 
     //Ktor
     implementation(libs.bundles.ktor)
@@ -91,8 +88,6 @@ dependencies {
     // timber
     implementation(libs.timber)
 
-    // voyager
-    implementation(libs.bundles.voyager)
 
     // coil
     implementation(libs.bundles.coil)
@@ -100,6 +95,10 @@ dependencies {
     // Room
     implementation(libs.bundles.room)
     annotationProcessor(libs.androidx.room.compiler)
+
+    // chucker
+    debugImplementation(libs.chuckerDebug)
+    releaseImplementation(libs.chuckerRelease)
 
 
 }
