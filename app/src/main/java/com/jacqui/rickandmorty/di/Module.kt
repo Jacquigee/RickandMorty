@@ -7,12 +7,15 @@ import com.jacqui.rickandmorty.data.repository.CharacterRepo
 import com.jacqui.rickandmorty.data.repository.CharacterRepoImpl
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApi
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApiImpl
+import com.jacqui.rickandmorty.view.viewmodel.CharacterViewModel
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+import org.koin.plugin.module.dsl.viewModel
+
 
 /**
  * Project Name: Rick and Morty
@@ -72,4 +75,8 @@ val characterModule =
 
 val repositoryModule = module {
     single<CharacterRepo> { CharacterRepoImpl(get(), get()) }
+}
+
+val viewmodelModule = module {
+    viewModel<CharacterViewModel>()
 }
