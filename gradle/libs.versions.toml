@@ -12,6 +12,9 @@ composeBom = "2026.03.01"
 
 androidx-datastore = "1.2.1"
 koin-plugin = "0.4.1"
+nav3Core = "1.0.1"
+material3AdaptiveNav3 = "1.3.0-alpha09"
+kotlinxSerializationCore = "1.9.0"
 
 #koin
 koin = "4.2.0"
@@ -33,6 +36,8 @@ voyager = "1.0.0-rc10"
 timber = "5.0.1"
 constraintlayout = "2.2.1"
 chucker = "4.3.1"
+material3 = "1.4.0"
+foundationLayout = "1.10.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -51,6 +56,14 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+
+#Navigation
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "material3AdaptiveNav3" }
+
 
 #androidx
 androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
@@ -98,6 +111,8 @@ androidx-room-paging = { group = "androidx.room", name = "room-paging", version.
 # other
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 
 
 [bundles]

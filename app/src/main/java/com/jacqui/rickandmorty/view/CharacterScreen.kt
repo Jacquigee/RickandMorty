@@ -36,18 +36,23 @@ import org.koin.compose.viewmodel.koinViewModel
  */
 
 @Composable
-fun CharacterScreen(modifier: Modifier = Modifier) {
+fun CharacterScreen(
+    onCharacterClick: (CharacterResultDomain) -> Unit,
+) {
     val viewmodel: CharacterViewModel = koinViewModel()
     val characters = viewmodel.characters.collectAsLazyPagingItems()
+
     CharacterScreenContent(
-        characters = characters
+        characters = characters,
+        characterDetails = onCharacterClick
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterScreenContent(
-    characters: LazyPagingItems<CharacterResultDomain>
+    characters: LazyPagingItems<CharacterResultDomain>,
+    characterDetails: (CharacterResultDomain) -> Unit
 ) {
     Scaffold(topBar = {
         TopAppBar(title = {
@@ -83,21 +88,22 @@ fun CharacterScreenContent(
                             if (character != null) {
                                 CharacterListItem(
                                     character = character,
+                                    onCharacterClicked = { characterDetails(character) }
                                 )
                             }
                         }
-                       item {
-                           if (characters.loadState.append is LoadState.Loading) {
-                               Box(
-                                   modifier = Modifier
-                                       .fillMaxWidth()
-                                       .padding(16.dp),
-                                   contentAlignment = Alignment.Center
-                               ) {
-                                   CircularProgressIndicator()
-                               }
-                           }
-                       }
+                        item {
+                            if (characters.loadState.append is LoadState.Loading) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    CircularProgressIndicator()
+                                }
+                            }
+                        }
                     }
 
                 }
