@@ -2,15 +2,14 @@ package com.jacqui.rickandmorty.view.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.jacqui.rickandmorty.data.domain.CharacterDomain
+import com.jacqui.rickandmorty.data.domain.CharacterResultDomain
 import com.jacqui.rickandmorty.data.repository.CharacterRepo
-import com.jacqui.rickandmorty.data.utils.DataResult
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
-import timber.log.Timber
 
 /**
  * Project Name: Rick and Morty
@@ -36,29 +35,11 @@ class CharacterViewModel(
     private val characterRepo: CharacterRepo
 ) : ViewModel() {
 
-    private val _characterUiState = MutableStateFlow(CharacterUiState())
-    val characterUiState = _characterUiState.stateIn(
-        viewModelScope,
-        initialValue = CharacterUiState(),
-        started = kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000)
-    )
-
-    init {
-        fetchCharacters()
-    }
-    private fun fetchCharacters() {
-        viewModelScope.launch {
-            when (val response = characterRepo.getCharacters()) {
-                is DataResult.Error -> {
-                    _characterUiState.update { it.copy(characters = ScreenUIState.Error(response.error)) }
-                }
-
-                is DataResult.Success -> {
-                    Timber.d("CharacterViewModel fetchCharacters: ${response.data}")
-                    _characterUiState.update {
-                        it.copy(characters = ScreenUIState.Success(data = response.data)) }
-                }
-            }
-        }
-    }
+    val characters: StateFlow<PagingData<CharacterResultDomain>> = characterRepo.getCharacters()
+        .cachedIn(viewModelScope)
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = PagingData.empty()
+        )
 }

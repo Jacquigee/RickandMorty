@@ -1,13 +1,15 @@
 package com.jacqui.rickandmorty.data.repository
 
-import android.R.attr.data
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.jacqui.rickandmorty.data.domain.CharacterDomain
-import com.jacqui.rickandmorty.data.mappers.toDomain
-import com.jacqui.rickandmorty.data.utils.DataResult
+import com.jacqui.rickandmorty.data.domain.CharacterResultDomain
+import com.jacqui.rickandmorty.sources.remote.CharacterPagingSource
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApi
-import com.jacqui.rickandmorty.sources.remote.utils.NetworkResult
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 
 /**
  * Project Name: Rick and Morty
@@ -21,16 +23,10 @@ class CharacterRepoImpl(
     private val characterApi: CharacterApi,
     private val dispatcher: CoroutineDispatcher
 ) : CharacterRepo {
-    override suspend fun getCharacters(): DataResult<CharacterDomain> =
-        withContext(dispatcher) {
-            when (val response = characterApi.getCharacters()) {
-                is NetworkResult.Error -> DataResult.Error(error = response.exception.message.toString())
-                is NetworkResult.Success -> {
-                    val data = response.data.toDomain()
-                    DataResult.Success(data = data)
-                }
-            }
-
-
-        }
+    override fun getCharacters(): Flow<PagingData<CharacterResultDomain>> {
+        return Pager(
+            config = PagingConfig(pageSize = 20, enablePlaceholders = false),
+            pagingSourceFactory = { CharacterPagingSource(characterApi) }
+        ).flow.flowOn(dispatcher)
+    }
 }

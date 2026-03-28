@@ -1,7 +1,7 @@
 package com.jacqui.rickandmorty.data.repository
 
-import com.jacqui.rickandmorty.data.domain.CharacterDomain
-import com.jacqui.rickandmorty.data.utils.DataResult
+import androidx.paging.PagingData
+import com.jacqui.rickandmorty.data.domain.CharacterResultDomain
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -13,5 +13,5 @@ import kotlinx.coroutines.flow.Flow
  */
 
 interface CharacterRepo {
-    suspend fun getCharacters(): DataResult<CharacterDomain>
+    fun getCharacters(): Flow<PagingData<CharacterResultDomain>>
 }
