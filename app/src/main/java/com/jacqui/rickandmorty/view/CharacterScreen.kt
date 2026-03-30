@@ -24,6 +24,7 @@ import androidx.paging.compose.itemKey
 import com.jacqui.rickandmorty.R
 import com.jacqui.rickandmorty.data.domain.CharacterResultDomain
 import com.jacqui.rickandmorty.view.component.CharacterListItem
+import com.jacqui.rickandmorty.view.ui.theme.RickAndMortyTheme
 import com.jacqui.rickandmorty.view.viewmodel.CharacterViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
