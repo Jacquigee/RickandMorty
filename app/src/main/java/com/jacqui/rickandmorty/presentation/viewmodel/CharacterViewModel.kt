@@ -1,4 +1,4 @@
-package com.jacqui.rickandmorty.view.viewmodel
+package com.jacqui.rickandmorty.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

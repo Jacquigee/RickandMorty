@@ -8,7 +8,7 @@ import com.jacqui.rickandmorty.data.repository.CharacterRepo
 import com.jacqui.rickandmorty.data.repository.CharacterRepoImpl
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApi
 import com.jacqui.rickandmorty.sources.remote.api.CharacterApiImpl
-import com.jacqui.rickandmorty.view.viewmodel.CharacterViewModel
+import com.jacqui.rickandmorty.presentation.viewmodel.CharacterViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

@@ -1,4 +1,4 @@
-package com.jacqui.rickandmorty.view.ui.theme
+package com.jacqui.rickandmorty.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

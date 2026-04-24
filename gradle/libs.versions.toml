@@ -14,7 +14,7 @@ androidx-datastore = "1.2.1"
 koin-plugin = "0.4.1"
 nav3Core = "1.0.1"
 material3AdaptiveNav3 = "1.3.0-alpha09"
-kotlinxSerializationCore = "1.9.0"
+kotlinxSerializationCore = "1.10.0"
 
 #koin
 koin = "4.2.0"
@@ -22,7 +22,7 @@ koin = "4.2.0"
 #Kotlin
 kotlinx-coroutines = "1.10.2"
 kotlinx-serialization = "1.10.0"
-ktor = "3.4.1"
+ktor = "3.4.2"
 
 
 # Room version

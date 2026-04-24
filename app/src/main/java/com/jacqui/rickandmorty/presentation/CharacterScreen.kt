@@ -1,4 +1,4 @@
-package com.jacqui.rickandmorty.view
+package com.jacqui.rickandmorty.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,9 +23,8 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import com.jacqui.rickandmorty.R
 import com.jacqui.rickandmorty.data.domain.CharacterResultDomain
-import com.jacqui.rickandmorty.view.component.CharacterListItem
-import com.jacqui.rickandmorty.view.ui.theme.RickAndMortyTheme
-import com.jacqui.rickandmorty.view.viewmodel.CharacterViewModel
+import com.jacqui.rickandmorty.presentation.component.CharacterListItem
+import com.jacqui.rickandmorty.presentation.viewmodel.CharacterViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 /**
