@@ -53,6 +53,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:network"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:characters"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -81,32 +85,8 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)
 
-    //Ktor
-    implementation(libs.bundles.ktor)
-    testImplementation(libs.ktor.client.mock)
-
-    // coroutines
-    implementation(libs.kotlinx.coroutines)
-    testImplementation(libs.kotlinx.coroutines.test)
-
     // timber
     implementation(libs.timber)
-
-
-    // coil
-    implementation(libs.bundles.coil)
-
-    // Room
-    implementation(libs.bundles.room)
-    ksp(libs.androidx.room.compiler) // Changed from annotationProcessor to ksp
-
-    // chucker
-    debugImplementation(libs.chuckerDebug)
-    releaseImplementation(libs.chuckerRelease)
-
-    //paging
-    implementation(libs.androidx.paging.runtime)
-    implementation(libs.androidx.paging.compose)
 
     //Nav 3
     implementation(libs.androidx.navigation3.ui)

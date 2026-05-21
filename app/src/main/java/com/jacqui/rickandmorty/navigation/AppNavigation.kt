@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
-import com.jacqui.rickandmorty.presentation.CharacterScreen
-import com.jacqui.rickandmorty.presentation.CharacterDetailScreen
+import com.jacqui.rickandmorty.feature.characters.presentation.CharacterScreen
+import com.jacqui.rickandmorty.feature.characters.presentation.CharacterDetailScreen
 
 /**
  * Project Name: Rick and Morty
