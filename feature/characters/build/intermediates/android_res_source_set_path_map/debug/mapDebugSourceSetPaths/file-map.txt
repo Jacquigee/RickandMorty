@@ -6,3 +6,4 @@ com.jacqui.rickandmorty.feature.characters-debug-4 /home/jacqui/AndroidStudioPro
 com.jacqui.rickandmorty.feature.characters-debug-5 /home/jacqui/AndroidStudioProjects/RickandMorty/feature/characters/build/intermediates/packaged_res/debug/packageDebugResources
 com.jacqui.rickandmorty.feature.characters-debug-6 /home/jacqui/AndroidStudioProjects/RickandMorty/feature/characters/src/debug/res
 com.jacqui.rickandmorty.feature.characters-main-7 /home/jacqui/AndroidStudioProjects/RickandMorty/feature/characters/src/main/res
+gradleHome-0 /home/jacqui/AndroidStudioProjects/Voyager

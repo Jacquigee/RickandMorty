@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml:2:13-83
-INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml:2:13-83
+ADDED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml:2:13-83
+INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml:2:13-83
 	package
-		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml
+		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml
 	xmlns:android
-		ADDED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml:2:23-81
+		ADDED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml:2:23-81
 uses-sdk
-INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml reason: use-sdk injection requested
-INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml
-INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml
+INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml reason: use-sdk injection requested
+INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml
+INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml
 	android:targetSdkVersion
-		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml
+		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml
 	android:minSdkVersion
-		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10008878067340983020.xml
+		INJECTED from /home/jacqui/AndroidStudioProjects/RickandMorty/core/ui/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest9323990944575376686.xml

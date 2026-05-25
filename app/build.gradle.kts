@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.jacqui.rickandmorty"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.jacqui.rickandmorty"

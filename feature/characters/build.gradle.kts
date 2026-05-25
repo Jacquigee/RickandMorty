@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.jacqui.rickandmorty.feature.characters"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24

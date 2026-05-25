@@ -6,3 +6,4 @@ com.jacqui.rickandmorty.core.common-debug-4 /home/jacqui/AndroidStudioProjects/R
 com.jacqui.rickandmorty.core.common-debug-5 /home/jacqui/AndroidStudioProjects/RickandMorty/core/common/build/intermediates/packaged_res/debug/packageDebugResources
 com.jacqui.rickandmorty.core.common-debug-6 /home/jacqui/AndroidStudioProjects/RickandMorty/core/common/src/debug/res
 com.jacqui.rickandmorty.core.common-main-7 /home/jacqui/AndroidStudioProjects/RickandMorty/core/common/src/main/res
+gradleHome-0 /home/jacqui/AndroidStudioProjects/Voyager
