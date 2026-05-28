@@ -1,0 +1,1 @@
+com.jacqui.rickandmorty.feature.characters

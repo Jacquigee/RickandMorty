@@ -1,0 +1,2 @@
+com.jacqui.rickandmorty.core.ui
+drawable arrow_back

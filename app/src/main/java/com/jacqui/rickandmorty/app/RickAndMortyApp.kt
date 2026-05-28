@@ -1,9 +1,8 @@
 package com.jacqui.rickandmorty.app
 
 import android.app.Application
-import com.jacqui.rickandmorty.di.characterModule
-import com.jacqui.rickandmorty.di.repositoryModule
-import com.jacqui.rickandmorty.di.viewmodelModule
+import com.jacqui.rickandmorty.core.network.di.networkModule
+import com.jacqui.rickandmorty.feature.characters.di.characterModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -23,9 +22,8 @@ class RickAndMortyApp : Application() {
         startKoin {
             androidContext(this@RickAndMortyApp)
             modules(
+                networkModule,
                 characterModule,
-                repositoryModule,
-                viewmodelModule,
             )
         }
         initializeTimber()
